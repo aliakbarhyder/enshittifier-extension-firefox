@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Enshittifier — test cases</title>
+    <style>
+      body {
+        font: 15px/1.55 -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        max-width: 720px;
+        margin: 40px auto;
+        padding: 0 20px;
+        color: #222;
+      }
+      h1 { font-size: 24px; }
+      h2 { font-size: 16px; margin-top: 28px; }
+      table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 10px; text-align: left; }
+      th { background: #f6f6f6; }
+      code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-family: ui-monospace, Menlo, monospace; }
+      .note { color: #666; font-size: 13px; }
+      input, textarea { font: inherit; padding: 4px 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>Enshittifier test page</h1>
+    <p class="note">
+      Load the extension, then open this file (drag into Chrome, or via
+      <code>file://</code>). The "rendered" column should show the
+      replacement; check that <em>nothing</em> in "should not change" got
+      hit.
+    </p>
+
+    <h2>Should be replaced</h2>
+    <table>
+      <thead><tr><th>Case</th><th>Source</th><th>Rendered</th></tr></thead>
+      <tbody>
+        <tr><td>Standalone</td><td><code>AI</code></td><td>AI</td></tr>
+        <tr><td>With spaces</td><td><code>about AI today</code></td><td>about AI today</td></tr>
+        <tr><td>Parentheses</td><td><code>(AI)</code></td><td>(AI)</td></tr>
+        <tr><td>Period after</td><td><code>love AI.</code></td><td>love AI.</td></tr>
+        <tr><td>Prefixed</td><td><code>OpenAI</code></td><td>OpenAI</td></tr>
+        <tr><td>Prefixed</td><td><code>GenAI</code></td><td>GenAI</td></tr>
+        <tr><td>Hyphen suffix</td><td><code>AI-powered</code></td><td>AI-powered</td></tr>
+        <tr><td>Prefix + hyphen</td><td><code>OpenAI-style</code></td><td>OpenAI-style</td></tr>
+        <tr><td>Slash after</td><td><code>AI/ML</code></td><td>AI/ML</td></tr>
+        <tr><td>Start of string</td><td><code>AI is fun</code></td><td>AI is fun</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Should NOT change</h2>
+    <table>
+      <thead><tr><th>Case</th><th>Source</th><th>Rendered</th></tr></thead>
+      <tbody>
+        <tr><td>Letter after</td><td><code>MAIL</code></td><td>MAIL</td></tr>
+        <tr><td>Letter after</td><td><code>AID</code></td><td>AID</td></tr>
+        <tr><td>Letter after</td><td><code>AIDS</code></td><td>AIDS</td></tr>
+        <tr><td>Plural-ish</td><td><code>AIs</code></td><td>AIs</td></tr>
+        <tr><td>Lowercase</td><td><code>ai</code>, <code>maintain</code>, <code>said</code></td><td>ai, maintain, said</td></tr>
+        <tr><td>Mixed case</td><td><code>Ai</code>, <code>aI</code></td><td>Ai, aI</td></tr>
+        <tr><td>Word containing</td><td><code>caiman</code>, <code>mainly</code></td><td>caiman, mainly</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Should NOT touch (skipped tags)</h2>
+
+    <p><strong>Input field:</strong> <input type="text" value="OpenAI in an input" size="32" /></p>
+    <p><strong>Textarea:</strong></p>
+    <textarea rows="2" cols="40">AI in a textarea — should stay AI</textarea>
+    <p><strong>Code block:</strong></p>
+    <pre><code>const company = "OpenAI"; // AI in code</code></pre>
+    <p><strong>contenteditable:</strong></p>
+    <div contenteditable="true" style="border:1px solid #ccc; padding:6px; border-radius:4px;">
+      Type or read here — AI should remain as AI.
+    </div>
+
+    <h2>Dynamic content</h2>
+    <p>
+      <button id="add">Inject new "AI" text via JS</button>
+      <span id="dyn" style="margin-left:10px;"></span>
+    </p>
+    <script>
+      document.getElementById("add").addEventListener("click", () => {
+        const target = document.getElementById("dyn");
+        const stamp = new Date().toLocaleTimeString();
+        target.textContent = `Injected AI at ${stamp} (OpenAI, AI-powered)`;
+      });
+    </script>
+  </body>
+</html>

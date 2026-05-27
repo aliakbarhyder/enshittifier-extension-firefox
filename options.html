@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Enshittifier — Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1><span class="poop">💩</span> Enshittifier</h1>
+        <p class="sub">Your Dead Internet companion. Replace all mentions of <code>AI</code> with <span class="ex"></span>.</p>
+      </header>
+
+      <section>
+        <label id="replacement-label">Replace AI with</label>
+        <div class="presets" role="radiogroup" aria-labelledby="replacement-label">
+          <button type="button" class="preset" role="radio" data-value="💩"><span class="preset-glyph">💩</span></button>
+          <button type="button" class="preset" role="radio" data-value="🤖"><span class="preset-glyph">🤖</span></button>
+          <button type="button" class="preset" role="radio" data-value="✨️"><span class="preset-glyph">✨️</span></button>
+          <button type="button" class="preset" role="radio" data-value="🚽"><span class="preset-glyph">🚽</span></button>
+          <button type="button" class="preset" role="radio" data-value="🔥"><span class="preset-glyph">🔥</span></button>
+          <button type="button" class="preset" role="radio" data-value="🤡"><span class="preset-glyph">🤡</span></button>
+          <input
+            type="text"
+            id="custom"
+            class="preset preset-custom"
+            role="radio"
+            data-custom
+            maxlength="64"
+            placeholder="Custom"
+            aria-label="Custom replacement"
+            autocomplete="off"
+            spellcheck="false"
+            aria-describedby="replacement-error"
+          />
+        </div>
+        <p class="error" id="replacement-error" role="alert" hidden>
+          Type something in Custom — even a single character works.
+        </p>
+      </section>
+
+      <section>
+        <label id="style-label">Style</label>
+        <div class="styles" role="radiogroup" aria-labelledby="style-label">
+          <button type="button" class="style-btn" role="radio" data-effect="none">Plain</button>
+          <button type="button" class="style-btn" role="radio" data-effect="glow">Glow</button>
+          <button type="button" class="style-btn" role="radio" data-effect="twirl">Twirl</button>
+          <button type="button" class="style-btn" role="radio" data-effect="rainbow">Rainbow</button>
+        </div>
+      </section>
+
+      <section>
+        <label for="excluded">Skip these sites</label>
+        <textarea
+          id="excluded"
+          rows="6"
+          placeholder="one domain per line"
+          autocomplete="off"
+          spellcheck="false"
+        ></textarea>
+        <p class="hint">
+          Subdomains included automatically. <code>*</code> is a wildcard
+          — e.g. <code>*.openai.com</code>, <code>news.*</code>,
+          <code>*reddit*</code>.
+        </p>
+      </section>
+
+      <section class="rules">
+        <h2>Examples</h2>
+        <ul>
+          <li>Tell me about AI → Tell me about <span class="ex"></span></li>
+          <li>ClosedAI's new model → Closed<span class="ex"></span>'s new model</li>
+          <li>AI-powered toaster → <span class="ex"></span>-powered toaster</li>
+        </ul>
+      </section>
+
+      <div class="actions">
+        <button id="save" type="button">Save</button>
+        <span id="status" aria-live="polite"></span>
+      </div>
+
+      <footer class="meta">
+        <p class="thanks">
+          Enshittifier is free. If you want to fund more weird projects like this, consider donating&mdash;it helps a lot.
+        </p>
+        <div class="links">
+          <a href="https://enshittifier.wells.ee" target="_blank" rel="noopener">Website</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://buymeacoffee.com/wellsriley" target="_blank" rel="noopener" class="donate">
+            Donate ☕
+          </a>
+        </div>
+      </footer>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
