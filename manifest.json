@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Enshittifier — Dead Internet companion",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "Replace AI with 💩 (or anything else) on every page. Skip the sites you'd rather not see it on.",
   "homepage_url": "https://wells.ee",
   "browser_specific_settings": {
     "gecko": {
       "id": "enshittifier@firefox.local",
-      "data_collection_permissions": "none required"
+      "data_collection_permissions": {}
     }
   },
   "icons": {
