@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "Replace AI with 💩 (or anything else) on every page. Skip the sites you'd rather not see it on.",
   "homepage_url": "https://enshittifier.wells.ee",
-  "minimum_chrome_version": "119",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -12,7 +11,7 @@
   },
   "permissions": ["storage"],
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
   "action": {
     "default_popup": "popup.html",

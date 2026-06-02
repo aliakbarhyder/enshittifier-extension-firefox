@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build a Chrome Web Store upload bundle containing only the runtime files
+# Build a Firefox-compatible extension bundle containing only the runtime files
 # the extension actually needs at install time. Output goes to
 # dist/enshittifier-extension-<version>.zip.
 set -euo pipefail

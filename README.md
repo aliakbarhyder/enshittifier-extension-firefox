@@ -12,25 +12,24 @@ required.
 
 ## Install
 
+**Firefox:**
 1. Clone or download this repo.
-2. Open `chrome://extensions`, enable **Developer mode**.
-3. Click **Load unpacked** and pick the repo's root directory.
+2. Open `about:debugging#/runtime/this-firefox`
+3. Click **Load Temporary Add-on** and select `manifest.json`
 
-Works in Chrome, Edge, Brave, Arc, and other Chromium browsers.
+**Chrome (and Chromium-based browsers):**
+See the [Chrome version of this extension](https://github.com/wr/enshittifier-extension).
 
 ## Configure
 
 Click the 💩 in your toolbar for a quick **on/off** toggle. Open the
 extension's options page (right-click the icon → **Options**, or via
-`chrome://extensions` → **Details**) to change the replacement text or
-exclude sites.
+the Add-ons page) to change the replacement text or exclude sites.
 
 - **Replace AI with** — any text or emoji.
 - **Skip these sites** — one host per line. Subdomains included
   automatically. `*` is a wildcard, e.g. `*.openai.com`, `news.*`,
   `*reddit*`.
-
-Settings sync across browsers signed into the same Chrome profile.
 
 ## What it actually does
 
